@@ -47,3 +47,5 @@ class SBooking(BaseModel):
 def add_booking(booking: SBooking):
     pass
 
+# uvicorn app.main:app --reload
+# result.mapping().all()

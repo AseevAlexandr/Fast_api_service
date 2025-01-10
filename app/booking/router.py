@@ -1,5 +1,6 @@
 from fastapi import APIRouter
-
+from app.booking.dao import BookingDAO
+from app.booking.schemas import SBooking
 
 router = APIRouter(
     prefix="/booking",
@@ -8,13 +9,6 @@ router = APIRouter(
 
 
 @router.get("")
-def get_booking():
-    pass
+async def get_booking() -> list[SBooking]:
+    return await BookingDAO.find_all()
 
-
-@router.get("{booking_id}")
-def get_booking2(booking_id):
-    pass
-
-# uvicorn app.main:app --reload
-# result.mapping().all()
